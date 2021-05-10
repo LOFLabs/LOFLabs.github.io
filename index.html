@@ -153,10 +153,37 @@ body {
   transition: 0.3s;
   width: 100%;
   border-radius: 25px;
+  padding : 5px;
+  margin: 5px;
 }
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.label {
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 5px;
+  padding : 5px;
+  margin: 5px;
+  background: #1abc9c;
+} 
+
+
+.card2 {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 50%;
+  border-radius: 5px;
+  padding : 5px;
+  margin: 5px;
+}
+
+.card2:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  background: #1abc9c;
+  color: white;
 }
 
 .container {
@@ -167,6 +194,14 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.row {
+  display: flex;
+}
+.column {
+  flex: 33.33%;
+  padding: 5px;
 }
 
 </style>
@@ -212,11 +247,12 @@ function myFunction() {
 
 
   <div class="side">
+  	<div class="center">
     <h2 align="center">Updates</h2>
     <img src="assets/UAD.jpg" alt="Universal Application Design" style="height:200px; border-radius: 25px;" class = "center" >
-    <div class="card">
+    <div class="card2" style="width: 60%; padding: 0px">
     <h5 align="center">UAD </h5>
-    </div></div>
+    </div></div></div>
 
 
 
@@ -224,10 +260,24 @@ function myFunction() {
   <div class="main">
     <h2>Recent Projects</h2>
     <div class="side">
-    <h5>Universal Application Developement</h5>
-<BR CLEAR=”left” />
-    <img src="assets/UADDemo.jpeg" alt="Universal Application Design" style="widht:100%; border-radius: 15px;" >
-    <p  style="font-size:15px">A project by team LOF, aimed to create a application that can convert natural language in to code of different languages like python, HTML, Java and etc. The application for HTML is currently in the beta stage , undergoing major updates for inclution of all the features of HTML 5. </p>
+    	<div class="label">
+    <h4 align="center" style="color: white ">Universal Application Developement</h4>
+</div><div class="row">
+<div class="column">
+    <img src="assets/UADDemo.jpeg" alt="Universal Application Design" style="width:100%; border-radius: 10px;" >
+    <div class="main">Image : Screenshot - UAD Prototype</div> 
+    </div><div class="column">
+
+    	<div class="main">
+    <p  style="font-size:15px">A project by team LOF, aimed to create a application that can convert natural language in to code of different languages like python, HTML, Java and etc. The application for HTML is currently in the beta stage , undergoing major updates for inclution of all the features of HTML 5. </p></div><br>
+<div class="center">
+<div class="card2" style="background: #1abc9c; color: white">Python</div>
+<div class="card2">Java</div>
+<div class="card2">C++</div>
+<div class="card2">HTML CSS</div>
+</div>
+
+</div></div>
 	</div>
     <br>
 
