@@ -8,9 +8,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     
     <style>
-    .container { border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;  padding: 16px; background :linear-gradient(to bottom right,rgb(255, 65, 129),rgb(31, 27, 36)) ; }
-    body {background-color: rgb(31, 27, 36);}
-    .card {     background :linear-gradient(to bottom right,rgb(255, 65, 129),rgb(31, 27, 36)) ;transition: 0.3s;   width: 100%;    color : white; padding:5px; }
+    .container { border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;  padding: 16px; background :linear-gradient(to bottom right,rgb(255, 65, 129),rgb(100, 27, 36)) ; }
+    body {background-color: rgb(31, 27, 36);
+    background-image: url("sketch.png");
+  	background-repeat: repeat;
+    background-attachment: fixed;}
+    .card {     background :rgb(255, 65, 129);transition: 0.3s;   width: 100%;    color : white; padding-top:5px; }
     .card:hover {   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); }
     
         #divContainer, #divResize { 
@@ -112,34 +115,32 @@ input {
     </style>
 </head>
 <body>
-<input type="button" style="float:left" id="btClickMe" value="Create more draggable DIV's" />
+<input type="button" style="background-color: rgb(255, 65, 129); color:white" id="btClickMe" value="Add Board" />
     <div>
         <div id="divResize"> 
         <h1 style = "color: white;"> LOF</h1>
         <p style = "color: white;">Lab of Future<p>
         <hr>
-            
         </div>
     </div>
 </body>
 
 <script>
-    var element_pos = 0;  
+    var element_pos = 0;
     var iCnt = 0;
-    
     $(document).ready(function() {
         $(function() { $("#divResize").draggable().resizable(); });
-
-   
         $('#btClickMe').click(function() {
 
             var dynamic_div = $(document.createElement('div')).css({
-                border: '3px solid', position: 'absolute', left: element_pos, 
+                position: 'absolute',
+                left: element_pos , 
+                
                 top: $('#divResize').height() + 50,
                 width: '300', height: '120', padding: '3', margin: '0'
             });
 
-            element_pos = element_pos + $('#divResize').width() + 20;
+            element_pos = $('#divResize').width() + 20;
 
             $(dynamic_div).append('<div class = "card"></div><div class="container"><div class="container__item"><form class="form"><input type="text" class="form__field" style="background-color:rgb(31, 27, 36); color: white" placeholder="Title" /><br><textarea name="myTextBox" style=" background-color:rgb(31, 27, 36); color: white"></textarea></form></div><div class="container__item container__item--bottom"></div></div>');
             $(dynamic_div).appendTo('#divResize').draggable().resizable();
