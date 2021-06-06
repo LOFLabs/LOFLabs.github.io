@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LOF Labs - BrainStrom Canvas</title>
+    
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    
+    <style>
+    .container { border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;  padding: 16px; background :linear-gradient(to bottom right,rgb(255, 65, 129),rgb(31, 27, 36)) ; }
+    body {background-color: rgb(31, 27, 36);}
+    .card {     background :linear-gradient(to bottom right,rgb(255, 65, 129),rgb(31, 27, 36)) ;transition: 0.3s;   width: 100%;    color : white; padding:5px; }
+    .card:hover {   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); }
+    
+        #divContainer, #divResize { 
+       
+            width:120px; 
+            height:120px; 
+            padding:15px; 
+            margin:5px; 
+            font:13px Arial; 
+            cursor:grab; 
+            float:left ;
+            box-shadow: 0 4px 8px 0 rgba(0,0,10,10);
+            background :rgb(255, 65, 129) ;
+            transition: 0.3s;
+        } 
+$main-color: #F44336;
+$secondary-color: black;
+$main-color: #fff;
+$secondary-color: black;
+$width: 550px;
+
+* {
+  box-sizing: border-box;
+}
+label {
+  position: absolute;
+  top: $width/15;
+  color: rgba(black, .5);
+  font: 400 $width/15 Roboto;
+  cursor: text;
+  transition: .25s ease;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding-top: $width/15;
+  border: none;
+  border-radius: 0;
+  
+  color: black;
+  background: $main-color;
+  font-size: $width/15;
+  transition: .3s ease;
+  &:valid {
+    
+    ~label {
+      top: 0;
+      font: 700 $width/25 Roboto;
+      color: rgba(white, .5);
+    }
+  }
+  &:focus {
+    outline: none;
+    
+    ~label {
+      top: 0;
+      font: 700 $width/25 Roboto;
+      color: $secondary-color;
+    }
+    
+      
+    ~ .bar:before {
+    transform: translateX(0);
+    }
+  }
+
+  
+  
+  &:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px $main-color inset;
+    -webkit-text-fill-color: white !important;
+  
+  }
+}
+
+.bar {
+
+  background: rgba(white, .5);
+  content: '';
+  width: $width;
+  height: $width;
+  transition: .3s ease;
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 150%;
+    background: $secondary-color;
+    transform: translateX(-100%);
+    
+  }
+}
+
+::selection {background: rgba($secondary-color, .3);}
+    
+}
+
+    </style>
+</head>
+<body>
+<input type="button" style="float:left" id="btClickMe" value="Create more draggable DIV's" />
+    <div>
+        <div id="divResize"> 
+        <h1 style = "color: white;"> LOF</h1>
+        <p style = "color: white;">Lab of Future<p>
+        <hr>
+            
+        </div>
+    </div>
+</body>
+
+<script>
+    var element_pos = 0;  
+    var iCnt = 0;
+    
+    $(document).ready(function() {
+        $(function() { $("#divResize").draggable().resizable(); });
+
+   
+        $('#btClickMe').click(function() {
+
+            var dynamic_div = $(document.createElement('div')).css({
+                border: '3px solid', position: 'absolute', left: element_pos, 
+                top: $('#divResize').height() + 50,
+                width: '300', height: '120', padding: '3', margin: '0'
+            });
+
+            element_pos = element_pos + $('#divResize').width() + 20;
+
+            $(dynamic_div).append('<div class = "card"></div><div class="container"><div class="container__item"><form class="form"><input type="text" class="form__field" style="background-color:rgb(31, 27, 36); color: white" placeholder="Title" /><br><textarea name="myTextBox" style=" background-color:rgb(31, 27, 36); color: white"></textarea></form></div><div class="container__item container__item--bottom"></div></div>');
+            $(dynamic_div).appendTo('#divResize').draggable().resizable();
+
+            iCnt = iCnt + 1;
+        });
+    });
+</script>
+</html>
