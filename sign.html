@@ -30,7 +30,7 @@ window.alert("Hello World");
 document.getElementById("he").innerHTML = "Signed out";
 var profile = googleUser.getBasicProfile();
 function onSignIn(googleUser) {
-if (profile.getname.includes("@student.onlinedegree.iitm.ac.in")){
+if (profile.getName.includes("@student.onlinedegree.iitm.ac.in")){
   document.getElementById("test").innerHTML = "Email : " + profile.getEmail();
   document.getElementById("he").innerHTML = "Signed in";
 	window.alert("Signed in as : "+ profile.getName)}
