@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<meta name="google-signin-client_id" content="310627469637-tuatmhc8jsu2cbh1qplbtit6vmcmnovp.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<style>
+body {
+  background-color: black;
+  text-align: center;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+</head>
+<body>
+
+<h1 id = "he">This is a Heading</h1>
+<p id = "test" >This is a paragraph.</p>
+<p>Edit the code in the window to the left, and click "Run" to view the result.</p>
+<img src="avatar.png" alt="Avatar" style="width:200px">
+
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+<a href="#" onclick="document.getElementById('he').innerHTML = 'Signed out - (Button Clicked)"> try </a>
+
+
+<script>
+
+window.alert("Hello World");
+document.getElementById("he").innerHTML = "Signed out";
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  document.getElementById("test").innerHTML = profile.getEmail();
+  document.getElementById("he").innerHTML = "Signed in";
+}
+
+function signOut() {
+document.getElementById("he").innerHTML = "Signed out - (Button Clicked)";
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+  
+  
+</script>
+<br>
+<a href="#" onclick="signOut();">Sign out</a>
+</body>
+</html>
