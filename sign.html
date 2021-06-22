@@ -6,60 +6,127 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <style>
 body {
-  background-color: red;
   text-align: center;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.card {
+padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 25px;
+background : black;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+
 </style>
+
 </head>
+
 <body>
+<center>
+<div class = "card" >
 
-<h1 id = "he">This is a Heading</h1>
-<p id = "test" >This is a paragraph.</p>
-<p>Edit the code in the window to the left, and click "Run" to view the result.</p>
-<img src="avatar.png" alt="Avatar" style="width:200px">
+<h1 id = "he"></h1>
 
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
+<div class = "center">
+<center>
+<img id = "imgg"></img><div class = "center"></div>
 
-<a href="#" onclick="document.getElementById('he').innerHTML = 'Signed out - (Button Clicked)"> try </a>
+</center>
+</div>
 
+
+
+</div>
+<p id = "info" style = "color: black;">Sign in to Continue</p>
+<p id = "test" style = "font-size: 14px;color: black;" ></p>
+<br>
+<br>
+<div class="g-signin2" data-onsuccess="onSignIn"></div><br><br><button onclick="signOut();">Sign out</button>
+</center>
 
 <script>
 
-window.alert("Hello World");
+window.alert("Welcome to the Auth Site V1 - Demo... ");
+
+
 document.getElementById("he").innerHTML = "Signed out";
-<<<<<<< HEAD
 
 
 function onSignIn(googleUser) {
-var profile = googleUser.getBasicProfile();
-var bo = profile.getName.includes("@student.onlinedegree.iitm.ac.in");
-  document.getElementById("test").innerHTML = "Email : " + profile.getEmail();
-  document.getElementById("he").innerHTML = "Signed in";
-	window.alert("Signed in as : "+ profile.getName);
-window.alert(bo);
-window.alert("Please Signin with your Student mail...");
 
-=======
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  document.getElementById("test").innerHTML = profile.getEmail();
-  document.getElementById("he").innerHTML = "Signed in";
->>>>>>> parent of c901d6b (Update sign.html)
+    var profile = googleUser.getBasicProfile();
+    
+    if (profile.getEmail().includes("@student.onlinedegree.iitm.ac.in")){
+    
+    window.alert("sign in successful");
+
+    document.getElementById('test').innerHTML = profile.getEmail();
+
+    document.getElementById('he').innerHTML = "Signed in";
+    
+    document.getElementById('info').innerHTML = "";
+    
+    document.getElementById('imgg').src = profile.getImageUrl();
+    
+    document.getElementById('info').innerHTML = profile.getName();
+    }
+    
+    else{
+    
+    	window.alert("Sign in with your Student Mail...");
+        
+        signOut();
+    }
+
 }
 
+
+
 function signOut() {
-document.getElementById("he").innerHTML = "Signed out - (Button Clicked)";
+
     var auth2 = gapi.auth2.getAuthInstance();
+    
     auth2.signOut().then(function () {
+    
       console.log('User signed out.');
-    });
+      
+    } );
+    
+    window.alert("signed out");
+
+    document.getElementById('test').innerHTML = "";
+
+    document.getElementById('he').innerHTML = "Signed out";
+    
+    document.getElementById('info').innerHTML = "Sign in to Continue";
+    
+    document.getElementById('imgg').src = '';
+    
+  
   }
-  
-  
+
+
 </script>
-<br>
-<a href="#" onclick="signOut();">Sign out</a>
+
 </body>
+
 </html>
