@@ -15,9 +15,10 @@ body {
 </head>
 <body>
 
-<h1 id = "he"></h1>
-
-<p id = "test" >Email : </p>
+<h1 id = "he">This is a Heading</h1>
+<p id = "test" >This is a paragraph.</p>
+<p>Edit the code in the window to the left, and click "Run" to view the result.</p>
+<img src="avatar.png" alt="Avatar" style="width:200px">
 
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
@@ -28,6 +29,7 @@ body {
 
 window.alert("Hello World");
 document.getElementById("he").innerHTML = "Signed out";
+<<<<<<< HEAD
 
 
 function onSignIn(googleUser) {
@@ -39,6 +41,12 @@ var bo = profile.getName.includes("@student.onlinedegree.iitm.ac.in");
 window.alert(bo);
 window.alert("Please Signin with your Student mail...");
 
+=======
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  document.getElementById("test").innerHTML = profile.getEmail();
+  document.getElementById("he").innerHTML = "Signed in";
+>>>>>>> parent of c901d6b (Update sign.html)
 }
 
 function signOut() {
@@ -48,9 +56,9 @@ document.getElementById("he").innerHTML = "Signed out - (Button Clicked)";
       console.log('User signed out.');
     });
   }
-
+  
+  
 </script>
-<br>
 <br>
 <a href="#" onclick="signOut();">Sign out</a>
 </body>
