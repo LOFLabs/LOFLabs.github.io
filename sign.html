@@ -122,13 +122,6 @@ function onSignIn(googleUser) {
 
     var head = profile.getEmail().split("@")[0];
 
-    firebase.initializeApp(firebaseConfig);
-    var rootRef = firebase.database().ref();
-    var urlRef = rootRef.child("0/" + head);
-    urlRef.once("value", function(snapshot) {
-    window.alert(snapshot.val());
-    
-  });
 
     document.getElementById('test').innerHTML = profile.getEmail();
 
@@ -139,6 +132,14 @@ function onSignIn(googleUser) {
     document.getElementById('imgg').src = profile.getImageUrl();
     
     document.getElementById('info').innerHTML = profile.getName();
+
+    firebase.initializeApp(firebaseConfig);
+    var rootRef = firebase.database().ref();
+    var urlRef = rootRef.child("0/" + head);
+    urlRef.once("value", function(snapshot) {
+    window.alert(snapshot.val());
+    
+  });
 
 
     }
