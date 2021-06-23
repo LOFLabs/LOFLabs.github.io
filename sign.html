@@ -3,6 +3,7 @@
 <head>
 <title>Page Title</title>
 <meta name="google-signin-client_id" content="310627469637-tuatmhc8jsu2cbh1qplbtit6vmcmnovp.apps.googleusercontent.com">
+<meta name="viewport" content="width=device-width,;initial-scale=1">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <style>
 body {
@@ -43,7 +44,7 @@ background : black;
 
 </head>
 
-<body>
+<body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
 <center>
 <div class = "card" >
 
@@ -72,6 +73,8 @@ background : black;
 <div id="top"></div>
 
 <script>
+
+  document.addEventListener('contextmenu', event => event.preventDefault());
 
 window.alert("Welcome to the Auth Site V1 - Demo... ");
 
