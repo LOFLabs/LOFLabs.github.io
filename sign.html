@@ -82,6 +82,16 @@ background : black;
 
 <script>
 
+  var firebaseConfig = {
+    apiKey: "AIzaSyB-JgzYvrruZ5aVNkAUcJktNg4n6WqdtCo",
+    authDomain: "lof-fnunho.firebaseapp.com",
+    databaseURL: "https://lof-fnunho.firebaseio.com",
+    projectId: "lof-fnunho",
+    storageBucket: "lof-fnunho.appspot.com",
+    messagingSenderId: "174519711144",
+    appId: "1:174519711144:web:b7a2234ef431c7d1c5599d"
+  };
+
   document.addEventListener('contextmenu', event => event.preventDefault());
 
 if (window.name != "login-erjbewwewbewgw"){
@@ -110,6 +120,16 @@ function onSignIn(googleUser) {
     
     window.alert("sign in successful");
 
+    var head = profile.getEmail().split("@")[0];
+
+    firebase.initializeApp(firebaseConfig);
+    var rootRef = firebase.database().ref();
+    var urlRef = rootRef.child("0/" + head);
+    urlRef.once("value", function(snapshot) {
+    window.alert(snapshot.val());
+    
+  });
+
     document.getElementById('test').innerHTML = profile.getEmail();
 
     document.getElementById('he').innerHTML = "Signed in";
@@ -119,6 +139,8 @@ function onSignIn(googleUser) {
     document.getElementById('imgg').src = profile.getImageUrl();
     
     document.getElementById('info').innerHTML = profile.getName();
+
+
     }
     
     else{
