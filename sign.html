@@ -45,7 +45,10 @@ background : black;
 </head>
 
 <body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
-<center>
+
+<div id = "i"><img src = 'https://iconsplace.com/wp-content/uploads/_icons/ff0000/256/png/error-icon-14-256.png'></div>
+
+<center id  = "s">
 <div class = "card" >
 
 <h1 id = "he"></h1>
@@ -75,6 +78,18 @@ background : black;
 <script>
 
   document.addEventListener('contextmenu', event => event.preventDefault());
+
+if (window.name != "login-erjbewwewbewgw"){
+document.getElementById("s").remove();
+alert1();
+}
+else{
+document.getElementById("i").remove();
+window.alert("logged in");
+document.getElementById("h").innerHTML = window.name;
+
+}
+
 
 window.alert("Welcome to the Auth Site V1 - Demo... ");
 
@@ -134,6 +149,14 @@ function signOut() {
     
   
   }
+
+  function alert1() {
+            var x = document.createElement("h2");
+            var t = 
+                document.createTextNode("Open this portal only from the official source ");
+            x.appendChild(t);
+            document.body.appendChild(x);
+        }
 
 
 </script>
