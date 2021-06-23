@@ -8,6 +8,8 @@
 <style>
 body {
 padding-top: 100px;
+padding-left: 20px;
+padding-right: 20px;
   text-align: center;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
@@ -73,7 +75,17 @@ background : black;
 <br>
 <br>
 <div class="g-signin2" data-onsuccess="onSignIn"></div><br><br><button onclick="signOut();">Sign out</button>
+
+
+<br><br><hr><br><br>
+
+<div class = "card" >
+  <p id = "info1">You Belong to Group : </p>
+</div>
+
 </center>
+
+
 
 <div id="left"></div>
 <div id="right"></div>
@@ -139,7 +151,9 @@ function onSignIn(googleUser) {
     var rootRef = firebase.database().ref();
     var urlRef = rootRef.child("0/" + head);
     urlRef.once("value", function(snapshot) {
-    window.alert(snapshot.val());
+    
+    document.getElementById('info1').innerHTML = "<b>You Belong to group : " + snapshot.val() + "</b>";
+
     
   });
 
@@ -166,8 +180,6 @@ function signOut() {
       console.log('User signed out.');
       
     } );
-    
-    window.alert("signed out");
 
     document.getElementById('test').innerHTML = "";
 
