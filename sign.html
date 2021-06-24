@@ -1,11 +1,19 @@
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
 <title>Authentication - Bandipur House</title>
+
 <meta name="google-signin-client_id" content="310627469637-tuatmhc8jsu2cbh1qplbtit6vmcmnovp.apps.googleusercontent.com">
+
 <meta name="viewport" content="width=device-width,;initial-scale=1.0">
+
 <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 <style>
+
 body {
 padding-top: 100px;
 padding-left: 20px;
@@ -96,55 +104,81 @@ background : black;
 <div id = "i"><img src = 'https://iconsplace.com/wp-content/uploads/_icons/ff0000/256/png/error-icon-14-256.png'></div>
 
 <center id  = "s">
+
 <div class = "card" id = "m" >
 
 <h1 id = "he"></h1>
 
 <div class = "center">
+
 <center>
+
 <img id = "imgg"></img><div class = "center"></div>
 
 </center>
-</div>
-
-
 
 </div>
+
+</div>
+
 <p id = "info" style = "color: black;">Sign in to Continue</p>
+
 <p id = "test" style = "font-size: 14px;color: black;" ></p>
+
 <br>
 <br>
+
 <div class="g-signin2" data-onsuccess="onSignIn"></div><br><br><button id = "o" onclick="signOut();">Sign out</button>
 
 <div id = "bot" style = "border : 2px, black;">
+
 <br><br><hr><br><br>
 
 <div class = "card" >
+
   <p id = "info1">You Belong to Group : </p>
 
 </div>
+
 <br>
+
 <div class="card">
+
   <p id = "tt">Join the Offical Telegram Group : </p>
+
   <button id = "but">Telegram</button>
+
 </div>
+
 <br>
+
 <div class = "gg">
+
 <div class="thing">
+
 <div style="padding: 20px">
+
   <p style = "color: black;" id = "g">
 grp</p>
+
 <h3 style = "color: blue;">bandipurwebad@student.onlinedegree.iitm.ac.in</h3></div>
+
 </div>
+
 </div>
+
 </div>
+
 </center>
 
 
 
 <div id="left"></div>
+
 <div id="right"></div>
+
 <div id="bottom"></div>
+
 <div id="top"></div>
 
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
@@ -181,7 +215,6 @@ else{
 }
 
 document.getElementById("he").innerHTML = "Signed out";
-
 
 function onSignIn(googleUser) {
 
@@ -241,11 +274,12 @@ function onSignIn(googleUser) {
 
       if (flag == "true"){
 
-      link.once("value", function(snapshot) {
+      lin.once("value", function(snapshot) {
 
         document.getElementById("tt").innerHTML = snapshot.val();
 
-      document.getElementById("but").onclick = function() {
+        document.getElementById("but").onclick = function() {
+          
         location.href = snapshot.val() ;
     }
 
