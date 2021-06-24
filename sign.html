@@ -273,7 +273,7 @@ function onSignIn(googleUser) {
 
     });
 
-    window.alert("Debug : above if condition : " + flag == "t");
+    window.alert(flag == "t");
 
       //if (flag == "t"){
 
@@ -282,8 +282,6 @@ function onSignIn(googleUser) {
       lin.on("value", function(snapshot) {
 
         window.alert("Getting link from the Database");
-
-        document.getElementById("tt").innerHTML = snapshot.val();
 
         document.getElementById("but").onclick = function() {
 
