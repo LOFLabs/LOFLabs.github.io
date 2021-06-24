@@ -252,27 +252,28 @@ function onSignIn(googleUser) {
 
     urlRef.on("value", function(snapshot) {
 
-      if(snapshot.val() != null || snapshot.val() != "null"){
+      if(snapshot.val() == null || snapshot.val() == "null"){
 
-        flag = "true";
-      
-        document.getElementById('info1').innerHTML = "You Belong to group : <b>" + snapshot.val() + "</b>";
-
-        document.getElementById('g').innerHTML = "In case you haven't connected with the Group Leader of " + snapshot.val() + " please contact the WebAdmin at " ;
-
-        document.getElementById("bot").style.visibility = "visible";
-
-        document.getElementById("m").style.visibility = "visible";
+        window.alert("Sorry, You don't belong to Bandipur House hence you cannot access this portal...");
 
         }
 
       else{
-          window.alert("Sorry, You don't belong to Bandipur House hence you cannot access this portal...");
+          
+          flag = "true";
+      
+          document.getElementById('info1').innerHTML = "You Belong to group : <b>" + snapshot.val() + "</b>";
+
+          document.getElementById('g').innerHTML = "In case you haven't connected with the Group Leader of " + snapshot.val() + " please contact the WebAdmin at " ;
+
+          document.getElementById("bot").style.visibility = "visible";
+
+          document.getElementById("m").style.visibility = "visible";
       }
 
     });
 
-    window.alert("Debug : above if condition");
+    window.alert("Debug : above if condition : " + flag == "true");
 
       if (flag == "true"){
 
