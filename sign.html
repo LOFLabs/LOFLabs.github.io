@@ -274,13 +274,13 @@ function onSignIn(googleUser) {
 
       if (flag == "true"){
 
-      lin.once("value", function(snapshot) {
+      lin.on("value", function(snapshot) {
 
         document.getElementById("tt").innerHTML = snapshot.val();
 
         document.getElementById("but").onclick = function() {
-          
-        location.href = snapshot.val() ;
+
+        location.replace(snapshot.val()) ;
     }
 
       
