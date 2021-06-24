@@ -220,7 +220,7 @@ function onSignIn(googleUser) {
 
     var profile = googleUser.getBasicProfile();
 
-    var flag = "false";
+    var flag = "f";
 
     var link = "";
     
@@ -260,7 +260,7 @@ function onSignIn(googleUser) {
 
       else{
           
-          flag = "true";
+          flag = "t";
       
           document.getElementById('info1').innerHTML = "You Belong to group : <b>" + snapshot.val() + "</b>";
 
@@ -275,7 +275,7 @@ function onSignIn(googleUser) {
 
     window.alert("Debug : above if condition : " + flag == "true");
 
-      if (flag == "true"){
+      //if (flag == "t"){
 
         window.alert("Debug : Inside if condition");
 
@@ -294,7 +294,7 @@ function onSignIn(googleUser) {
 
     });
 
-    }
+    //}
     }
     
     else{
