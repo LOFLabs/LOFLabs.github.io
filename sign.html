@@ -272,9 +272,15 @@ function onSignIn(googleUser) {
 
     });
 
+    window.alert("Debug : above if condition");
+
       if (flag == "true"){
 
+        window.alert("Debug : Inside if condition");
+
       lin.on("value", function(snapshot) {
+
+        window.alert("Getting link from the Database");
 
         document.getElementById("tt").innerHTML = snapshot.val();
 
