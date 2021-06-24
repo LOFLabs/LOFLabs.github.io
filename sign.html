@@ -45,6 +45,45 @@ background : black;
   padding: 2px 16px;
 }
 
+.thing {
+  padding: 1rem;
+  width: 500px;
+  box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
+    0 5px 15px 0 rgba(0,0,0,0.08);
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  
+  border-left: 0 solid #00ff99;
+  transition: border-left 300ms ease-in-out, padding-left 300ms ease-in-out;
+}
+
+.thing:hover {
+  padding-left: 0.5rem;
+  border-left: 0.5rem solid #00ff99;
+}
+
+.thing > :first-child {
+  margin-top: 0;
+}
+
+.thing > :last-child {
+  margin-bottom: 0;
+}
+
+.heading {
+  color: #fff;
+}
+
+.gg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background-color: #0099ff;
+  border-radius: 25px;
+}
+
 #top, #bottom, #left, #right { 	background: rgb(78, 125, 150); 	position: fixed; 	} 	#left, #right { 		top: 0; bottom: 0; 		width: 10px; 		} 		#left { left: 0; } 		#right { right: 0; } 		 	#top, #bottom { 		left: 0; right: 0; 		height: 10px; 		} 		#top { top: 0; } 		#bottom { bottom: 0; }
 
 </style>
@@ -56,7 +95,7 @@ background : black;
 <div id = "i"><img src = 'https://iconsplace.com/wp-content/uploads/_icons/ff0000/256/png/error-icon-14-256.png'></div>
 
 <center id  = "s">
-<div class = "card" >
+<div class = "card" id = "m" >
 
 <h1 id = "he"></h1>
 
@@ -74,18 +113,23 @@ background : black;
 <p id = "test" style = "font-size: 14px;color: black;" ></p>
 <br>
 <br>
-<div class="g-signin2" data-onsuccess="onSignIn"></div><br><br><button onclick="signOut();">Sign out</button>
+<div class="g-signin2" data-onsuccess="onSignIn"></div><br><br><button id = "o" onclick="signOut();">Sign out</button>
 
-
+<div id = "bot" style = "border : 2px, black;">
 <br><br><hr><br><br>
-<div id = "bot">
+
 <div class = "card" >
   <p id = "info1">You Belong to Group : </p>
 </div>
 <br>
+<div class = "gg">
+<div class="thing">
 <div style="padding: 20px">
-  <p style = "color: black;">
-In case you haven't connected with the Group Leader of <b><p id = "g" style = "color: black;"></p></b> please contact the WebAdmin at <a>bandipurwebad@student.onlinedegree.iitm.ac.in</a></p></div>
+  <p style = "color: black;" id = "g">
+grp</p>
+<h3 style = "color: blue;">bandipurwebad@student.onlinedegree.iitm.ac.in</h3></div>
+</div>
+</div>
 </div>
 </center>
 
@@ -101,6 +145,8 @@ In case you haven't connected with the Group Leader of <b><p id = "g" style = "c
 <script>
 
   document.getElementById("bot").style.visibility = "hidden";
+  document.getElementById("m").style.visibility = "hidden";
+  document.getElementById("o").style.visibility = "hidden";
 
   var firebaseConfig = {
     apiKey: "AIzaSyB-JgzYvrruZ5aVNkAUcJktNg4n6WqdtCo",
@@ -114,7 +160,7 @@ In case you haven't connected with the Group Leader of <b><p id = "g" style = "c
 
   document.addEventListener('contextmenu', event => event.preventDefault());
 
-if (false && window.name != "login-erjbewwewbewgw"){
+if (window.name != "login-erjbewwewbewgw"){
 document.getElementById("s").remove();
 alert1();
 }
@@ -139,6 +185,8 @@ function onSignIn(googleUser) {
 
     var head = profile.getEmail().split("@")[0];
 
+    document.getElementById("o").style.visibility = "visible";
+
 
     document.getElementById('test').innerHTML = profile.getEmail();
 
@@ -157,9 +205,10 @@ function onSignIn(googleUser) {
     
     document.getElementById('info1').innerHTML = "You Belong to group : <b>" + snapshot.val() + "</b>";
 
-    document.getElementById('g').innerHTML = snapshot.val();
+    document.getElementById('g').innerHTML = "In case you haven't connected with the Group Leader of " + snapshot.val() + " please contact the WebAdmin at " ;
 
     document.getElementById("bot").style.visibility = "visible";
+    document.getElementById("m").style.visibility = "visible";
 
     
   });
