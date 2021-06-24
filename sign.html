@@ -121,6 +121,12 @@ background : black;
 
 <div class = "card" >
   <p id = "info1">You Belong to Group : </p>
+
+</div>
+<br>
+<div class="card">
+  <p>Join the Offical Telegram Group : </p>
+  <button onclick="tele();" id = "but">Telegram</button>
 </div>
 <br>
 <div class = "gg">
@@ -178,7 +184,9 @@ function onSignIn(googleUser) {
 
     var profile = googleUser.getBasicProfile();
 
-    var flag = true;
+    var flag = false;
+
+    var link = "";
     
     if (profile.getEmail().includes("@student.onlinedegree.iitm.ac.in")){
     
@@ -202,19 +210,42 @@ function onSignIn(googleUser) {
     firebase.initializeApp(firebaseConfig);
     var rootRef = firebase.database().ref();
     var urlRef = rootRef.child("0/" + head);
+    var lin = rootRef.child("0/1link");
     urlRef.on("value", function(snapshot) {
+
+    if(snapshot.val() != null or snapshot.val() != "null"){
+
+      flag = true
     
-    document.getElementById('info1').innerHTML = "You Belong to group : <b>" + snapshot.val() + "</b>";
+      document.getElementById('info1').innerHTML = "You Belong to group : <b>" + snapshot.val() + "</b>";
 
-    document.getElementById('g').innerHTML = "In case you haven't connected with the Group Leader of " + snapshot.val() + " please contact the WebAdmin at " ;
+      document.getElementById('g').innerHTML = "In case you haven't connected with the Group Leader of " + snapshot.val() + " please contact the WebAdmin at " ;
 
-    document.getElementById("bot").style.visibility = "visible";
-    document.getElementById("m").style.visibility = "visible";
+      document.getElementById("bot").style.visibility = "visible";
+      document.getElementById("m").style.visibility = "visible";
 
-    
-  });
+      }
+    else{
+        window.alert("Sorry, You don't belong to Bandipur House hence you cannot access this portal...")
+    }
 
+    });
 
+      if (flag){
+
+      link.once("value", function(snapshot) {
+      
+      link = snapshot.val();
+
+      document.getElementById("but").onclick = function() {
+        location.href= link ;
+    }
+
+      
+
+    });
+
+    }
     }
     
     else{
@@ -254,6 +285,14 @@ function signOut() {
   }
 
   function alert1() {
+            var x = document.createElement("h2");
+            var t = 
+                document.createTextNode("Open this portal only from the official source ");
+            x.appendChild(t);
+            document.body.appendChild(x);
+        }
+
+  function tele() {
             var x = document.createElement("h2");
             var t = 
                 document.createTextNode("Open this portal only from the official source ");
