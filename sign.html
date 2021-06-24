@@ -78,11 +78,13 @@ background : black;
 
 
 <br><br><hr><br><br>
-
+<div id = "bot">
 <div class = "card" >
   <p id = "info1">You Belong to Group : </p>
 </div>
 
+In case you haven't connected with the Group Leader of <p id = "g"></p> please contact the WebAdmin at bandipurwebad@student.onlinedegree.iitm.ac.in
+</div>
 </center>
 
 
@@ -95,6 +97,8 @@ background : black;
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
 
 <script>
+
+  document.getElementById("bot").style.visibility = "hidden";
 
   var firebaseConfig = {
     apiKey: "AIzaSyB-JgzYvrruZ5aVNkAUcJktNg4n6WqdtCo",
@@ -124,6 +128,8 @@ document.getElementById("he").innerHTML = "Signed out";
 function onSignIn(googleUser) {
 
     var profile = googleUser.getBasicProfile();
+
+    var flag = true;
     
     if (profile.getEmail().includes("@student.onlinedegree.iitm.ac.in")){
     
@@ -147,7 +153,11 @@ function onSignIn(googleUser) {
     var urlRef = rootRef.child("0/" + head);
     urlRef.once("value", function(snapshot) {
     
-    document.getElementById('info1').innerHTML = "<b>You Belong to group : " + snapshot.val() + "</b>";
+    document.getElementById('info1').innerHTML = "You Belong to group : <b>" + snapshot.val() + "</b>";
+
+    document.getElementById('g').innerHTML = snapshot.val();
+
+    document.getElementById("bot").style.visibility = "visible";
 
     
   });
