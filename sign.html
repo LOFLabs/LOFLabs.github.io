@@ -3,7 +3,7 @@
 <head>
 <title>Authentication - Bandipur House</title>
 <meta name="google-signin-client_id" content="310627469637-tuatmhc8jsu2cbh1qplbtit6vmcmnovp.apps.googleusercontent.com">
-<meta name="viewport" content="width=device-width,;initial-scale=1">
+<meta name="viewport" content="width=device-width,;initial-scale=1.0">
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <style>
 body {
@@ -47,7 +47,8 @@ background : black;
 
 .thing {
   padding: 1rem;
-  width: 500px;
+  width: 100%;
+  height: 100%;
   box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11),
     0 5px 15px 0 rgba(0,0,0,0.08);
   background-color: #ffffff;
@@ -59,7 +60,7 @@ background : black;
 
 .thing:hover {
   padding-left: 0.5rem;
-  border-left: 0.5rem solid #00ff99;
+  border-left: 0.5rem solid #0099ff;
 }
 
 .thing > :first-child {
@@ -244,6 +245,10 @@ function signOut() {
     document.getElementById('info').innerHTML = "Sign in to Continue";
     
     document.getElementById('imgg').src = '';
+
+  document.getElementById("bot").style.visibility = "hidden";
+  document.getElementById("m").style.visibility = "hidden";
+  document.getElementById("o").style.visibility = "hidden";
     
   
   }
