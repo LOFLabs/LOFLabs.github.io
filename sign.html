@@ -92,7 +92,6 @@ background : black;
 </head>
 
 <body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
-  version 1
 
 <div id = "i"><img src = 'https://iconsplace.com/wp-content/uploads/_icons/ff0000/256/png/error-icon-14-256.png'></div>
 
@@ -153,7 +152,9 @@ grp</p>
 <script>
 
   document.getElementById("bot").style.visibility = "hidden";
+
   document.getElementById("m").style.visibility = "hidden";
+
   document.getElementById("o").style.visibility = "hidden";
 
   var firebaseConfig = {
@@ -168,8 +169,10 @@ grp</p>
 
   document.addEventListener('contextmenu', event => event.preventDefault());
 
-if (window.name != "login-erjbewwewbewgw"){
+if (false && window.name != "login-erjbewwewbewgw"){
+
   document.getElementById("s").remove();
+  
   alert1();
 }
 
@@ -184,7 +187,7 @@ function onSignIn(googleUser) {
 
     var profile = googleUser.getBasicProfile();
 
-    var flag = false;
+    var flag = "false";
 
     var link = "";
     
@@ -195,7 +198,6 @@ function onSignIn(googleUser) {
     var head = profile.getEmail().split("@")[0];
 
     document.getElementById("o").style.visibility = "visible";
-
 
     document.getElementById('test').innerHTML = profile.getEmail();
 
@@ -208,30 +210,36 @@ function onSignIn(googleUser) {
     document.getElementById('info').innerHTML = profile.getName();
 
     firebase.initializeApp(firebaseConfig);
+
     var rootRef = firebase.database().ref();
+
     var urlRef = rootRef.child("0/" + head);
+
     var lin = rootRef.child("0/1link");
+
     urlRef.on("value", function(snapshot) {
 
-    if(snapshot.val() != null or snapshot.val() != "null"){
+      //if(snapshot.val() != null or snapshot.val() != "null"){
 
-      flag = true;
-    
-      document.getElementById('info1').innerHTML = "You Belong to group : <b>" + snapshot.val() + "</b>";
+        flag = "true";
+      
+        document.getElementById('info1').innerHTML = "You Belong to group : <b>" + snapshot.val() + "</b>";
 
-      document.getElementById('g').innerHTML = "In case you haven't connected with the Group Leader of " + snapshot.val() + " please contact the WebAdmin at " ;
+        document.getElementById('g').innerHTML = "In case you haven't connected with the Group Leader of " + snapshot.val() + " please contact the WebAdmin at " ;
 
-      document.getElementById("bot").style.visibility = "visible";
-      document.getElementById("m").style.visibility = "visible";
+        document.getElementById("bot").style.visibility = "visible";
 
-      }
-    else{
-        window.alert("Sorry, You don't belong to Bandipur House hence you cannot access this portal...");
-    }
+        document.getElementById("m").style.visibility = "visible";
+
+        //}
+
+      //else{
+          //window.alert("Sorry, You don't belong to Bandipur House hence you cannot access this portal...");
+      //}
 
     });
 
-      if (flag){
+      if (flag == "true"){
 
       link.once("value", function(snapshot) {
       
@@ -277,17 +285,22 @@ function signOut() {
     
     document.getElementById('imgg').src = '';
 
-  document.getElementById("bot").style.visibility = "hidden";
-  document.getElementById("m").style.visibility = "hidden";
-  document.getElementById("o").style.visibility = "hidden";
+    document.getElementById("bot").style.visibility = "hidden";
+
+    document.getElementById("m").style.visibility = "hidden";
+
+    document.getElementById("o").style.visibility = "hidden";
     
   
   }
 
   function alert1() {
             var x = document.createElement("h2");
-                document.createTextNode("Open this portal only from the official source ");
+
+            document.createTextNode("Open this portal only from the official source ");
+
             x.appendChild(t);
+
             document.body.appendChild(x);
         }
 
