@@ -92,6 +92,7 @@ background : black;
 </head>
 
 <body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
+  version 1
 
 <div id = "i"><img src = 'https://iconsplace.com/wp-content/uploads/_icons/ff0000/256/png/error-icon-14-256.png'></div>
 
@@ -168,11 +169,12 @@ grp</p>
   document.addEventListener('contextmenu', event => event.preventDefault());
 
 if (window.name != "login-erjbewwewbewgw"){
-document.getElementById("s").remove();
-alert1();
+  document.getElementById("s").remove();
+  alert1();
 }
+
 else{
-document.getElementById("i").remove();
+  document.getElementById("i").remove();
 }
 
 document.getElementById("he").innerHTML = "Signed out";
