@@ -202,7 +202,7 @@ function onSignIn(googleUser) {
     firebase.initializeApp(firebaseConfig);
     var rootRef = firebase.database().ref();
     var urlRef = rootRef.child("0/" + head);
-    urlRef.once("value", function(snapshot) {
+    urlRef.on("value", function(snapshot) {
     
     document.getElementById('info1').innerHTML = "You Belong to group : <b>" + snapshot.val() + "</b>";
 
