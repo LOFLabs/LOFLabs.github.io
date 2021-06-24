@@ -108,6 +108,10 @@ background : black;
  padding : 0.5rem;
 }
 
+img {
+  border-radius: 50%;
+}
+
 #top, #bottom, #left, #right { 	background: rgb(78, 125, 150); 	position: fixed; 	} 	#left, #right { 		top: 0; bottom: 0; 		width: 10px; 		} 
 
 #left { left: 0; } 		
@@ -127,7 +131,7 @@ background : black;
 
 <body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
 
-<div id = "i"><img src = 'https://iconsplace.com/wp-content/uploads/_icons/ff0000/256/png/error-icon-14-256.png'></div>
+<div id = "i"><img width="100" height="100" src = 'https://iconsplace.com/wp-content/uploads/_icons/ff0000/256/png/error-icon-14-256.png'></div>
 
 <center id  = "s">
 
@@ -139,7 +143,7 @@ background : black;
 
 <center>
 
-<img id = "imgg"></img><div class = "center"></div>
+<img  width="200" height="200" id = "imgg"></img><div class = "center"></div>
 
 </center>
 
@@ -355,7 +359,7 @@ function signOut() {
   function alert1() {
             var x = document.createElement("h2");
 
-            document.createTextNode("Open this portal only from the official source ");
+            var t = document.createTextNode("Open this portal only from the official source ");
 
             x.appendChild(t);
 
