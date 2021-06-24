@@ -254,7 +254,7 @@ function onSignIn(googleUser) {
 
       if(snapshot.val() == null || snapshot.val() == "null"){
 
-        window.alert("Sorry, You don't belong to Bandipur House hence you cannot access this portal...");
+        window.alert("Sorry, you cannot access this portal, Either because you don't belong to Bandipur House or you have been banned from using the portal... ");
 
         }
 
@@ -270,15 +270,9 @@ function onSignIn(googleUser) {
 
           document.getElementById("m").style.visibility = "visible";
 
-          window.alert(flag == "t");
+      if (flag == "t"){
 
-      //if (flag == "t"){
-
-        window.alert("Debug : Inside if condition");
-
-      lin.on("value", function(snapshot) {
-
-        window.alert("Getting link from the Database");
+        lin.on("value", function(snapshot) {
 
         document.getElementById("but").onclick = function() {
 
@@ -289,7 +283,7 @@ function onSignIn(googleUser) {
 
     });
 
-    //}
+    }
       }
 
     });
