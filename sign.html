@@ -219,7 +219,7 @@ function onSignIn(googleUser) {
 
     urlRef.on("value", function(snapshot) {
 
-      //if(snapshot.val() != null or snapshot.val() != "null"){
+      if(snapshot.val() != null || snapshot.val() != "null"){
 
         flag = "true";
       
@@ -231,11 +231,11 @@ function onSignIn(googleUser) {
 
         document.getElementById("m").style.visibility = "visible";
 
-        //}
+        }
 
-      //else{
+      else{
           //window.alert("Sorry, You don't belong to Bandipur House hence you cannot access this portal...");
-      //}
+      }
 
     });
 
