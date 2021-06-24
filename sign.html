@@ -215,7 +215,7 @@ function onSignIn(googleUser) {
 
     if(snapshot.val() != null or snapshot.val() != "null"){
 
-      flag = true
+      flag = true;
     
       document.getElementById('info1').innerHTML = "You Belong to group : <b>" + snapshot.val() + "</b>";
 
@@ -226,7 +226,7 @@ function onSignIn(googleUser) {
 
       }
     else{
-        window.alert("Sorry, You don't belong to Bandipur House hence you cannot access this portal...")
+        window.alert("Sorry, You don't belong to Bandipur House hence you cannot access this portal...");
     }
 
     });
@@ -286,7 +286,6 @@ function signOut() {
 
   function alert1() {
             var x = document.createElement("h2");
-            var t = 
                 document.createTextNode("Open this portal only from the official source ");
             x.appendChild(t);
             document.body.appendChild(x);
