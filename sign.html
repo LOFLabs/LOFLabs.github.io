@@ -131,13 +131,13 @@ img {
 
 <body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
 
-<div id = "i"><img style="width:100px" src = 'https://iconsplace.com/wp-content/uploads/_icons/ff0000/256/png/error-icon-14-256.png'></div>
+<div id = "i"><img style="width:50%" src = 'https://iconsplace.com/wp-content/uploads/_icons/ff0000/256/png/error-icon-14-256.png'></div>
 
 <center id  = "s">
 
 <div class = "card" id = "m" >
 
-<h1 id = "he"></h1>
+<h3 id = "he"></h3>
 
 <div class = "center">
 
@@ -252,8 +252,6 @@ function onSignIn(googleUser) {
     var link = "";
     
     if (profile.getEmail().includes("@student.onlinedegree.iitm.ac.in")){
-    
-    window.alert("sign in successful");
 
     var head = profile.getEmail().split("@")[0];
 
