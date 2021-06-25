@@ -36,13 +36,12 @@ body {
 body {
   display: grid;
   font-family: "Sacramento", cursive;
- color : white;
+ color : black;
 }
 body .card1 {
   padding: 2em;
   border-radius: 1em;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  text-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
   background: rgba(255, 255, 255, 0.2);
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
