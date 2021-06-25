@@ -29,6 +29,25 @@ h2{
   font-size: 12px;
 }
 
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: black;
+   color: white;
+   text-align: center;
+}
+
+.header {
+   position: fixed;
+   right: 0;
+   top: 0;
+   width: 100%;
+   height : 50px;
+   color: white;
+   text-align: right;
+}
 
 .center {
   margin: auto;
@@ -173,7 +192,7 @@ img {
 
 <p id = "si">Sign in to Continue</p>
 
-<div id = "sign" class="g-signin2" data-onsuccess="onSignIn"></div><button id = "o" onclick="signOut();">Sign out</button>
+<div id = "sign" class="g-signin2" data-onsuccess="onSignIn"></div><div class="header"><button id = "o" onclick="signOut();">Sign out</button></div>
 
 <div id = "bot" style = "border : 2px, black; visibility :hidden;">
 
@@ -208,6 +227,10 @@ img {
 </center>
 
 </center>
+
+<div class="footer">
+  <p>Site hosted and Maintained by Techinical team, Bandipur house</p>
+</div>
 
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
 
