@@ -173,15 +173,10 @@ img {
 
 <p id = "si">Sign in to Continue</p>
 
-<div id = "sign" class="g-signin2" data-onsuccess="onSignIn"></div><br><br><button id = "o" onclick="signOut();">Sign out</button>
+<div id = "sign" class="g-signin2" data-onsuccess="onSignIn"></div><button id = "o" onclick="signOut();">Sign out</button>
 
 <div id = "bot" style = "border : 2px, black; visibility :hidden;">
 
-<br>
-
-<br>
-
-<br>
 
 <div class = "gg">
 
@@ -263,7 +258,7 @@ function onSignIn(googleUser) {
 
     document.getElementById("o").style.visibility = "visible";
 
-    document.getElementById('test').innerHTML = profile.getEmail();
+    document.getElementById('test').innerHTML = head;
 
     document.getElementById('he').innerHTML = "Signed in";
     
