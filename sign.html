@@ -18,14 +18,15 @@ body {
 padding-top: 100px;
 padding-left: 20px;
 padding-right: 20px;
+padding-bottom: 100px;
   text-align: center;
-  color: white;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("https://loflabs.github.io/new.jpg");background-repeat: repeat;
+  background: url("bg.jpg") no-repeat center ;
 }
 
 h2{ 
   color: red;
+  font-size: 12px;
 }
 
 
@@ -40,13 +41,13 @@ h2{
 padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 70%;
+  width: 80%;
   border-radius: 25px;
-background : black;
+  background-color: #ffffff;
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 10px 20px 0 rgba(0,0,0,0.2);
 }
 
 .container {
@@ -112,14 +113,6 @@ img {
   border-radius: 100px;
 }
 
-#top, #bottom, #left, #right { 	background: rgb(78, 125, 150); 	position: fixed; 	} 	#left, #right { 		top: 0; bottom: 0; 		width: 10px; 		} 
-
-#left { left: 0; } 		
-
-#right { right: 0; } 	
-
-#top, #bottom { 		left: 0; right: 0; 		height: 10px; 		} 		#top { top: 0; } 		#bottom { bottom: 0; }
-
 
 </style>
 
@@ -127,11 +120,24 @@ img {
 
 <body oncontextmenu="return false" onkeydown="return false;" onmousedown="return false;">
 
-<div id = "i"><img style="width:150px" src = 'https://iconsplace.com/wp-content/uploads/_icons/ff0000/256/png/error-icon-14-256.png'></div>
+  <center>
+
+
+
+
+
+<div class="card">
+
+  <div id = "i"><img style="width:150px" src = 'https://iconsplace.com/wp-content/uploads/_icons/ff0000/256/png/error-icon-14-256.png'></div>
+
+  <h1 style="font-family: 'Monaco';"> Bandipur House</h1>
+
+  <h2 id = "warn" style=" visibility : hidden;">Open this site only from the official website</h2>
+  <h6 id = "warn1" style=" visibility : hidden;">Techinical Team</h6>
 
 <center id  = "s">
 
-<div class = "card" id = "m" >
+<div class = "card" id = "m" style="visibility : hidden;" >
 
 <h3 id = "he"></h3>
 
@@ -156,7 +162,7 @@ img {
 
 <div class="g-signin2" data-onsuccess="onSignIn"></div><br><br><button id = "o" onclick="signOut();">Sign out</button>
 
-<div id = "bot" style = "border : 2px, black;">
+<div id = "bot" style = "border : 2px, black; visibility :hidden;">
 
 <br><br><hr><br><br>
 
@@ -194,15 +200,11 @@ img {
 
 </div>
 
+</div>
+
 </center>
 
-<div id="left"></div>
-
-<div id="right"></div>
-
-<div id="bottom"></div>
-
-<div id="top"></div>
+</center>
 
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
 
@@ -226,7 +228,7 @@ img {
 
   document.addEventListener('contextmenu', event => event.preventDefault());
 
-if (window.name != "login-erjbewwewbewgw"){
+if (false && window.name != "login-erjbewwewbewgw"){
 
   document.getElementById("s").remove();
   
@@ -351,13 +353,11 @@ function signOut() {
   }
 
   function alert1() {
-            var x = document.createElement("h2");
 
-            var t = document.createTextNode("Open this portal only from the official source ");
+            document.getElementById("warn").style.visibility = "visible";
+            document.getElementById("warn1").style.visibility = "visible";
 
-            x.appendChild(t);
-
-            document.body.appendChild(x);
+            
         }
 
   function tele() {
