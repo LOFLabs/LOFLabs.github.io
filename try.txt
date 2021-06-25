@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<div class="card" data-tilt data-tilt-scale="0.95" data-tilt-startY="40">
+  <div class="welcome">
+    Welcome to Bandipur House
+  </div>
+ 
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
