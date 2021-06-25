@@ -172,7 +172,7 @@ img {
 <center>
 <div style="display : flex; flex-direction : row; width: 100%;">
 <div class = "center"><img id = "imgg" class="avatar"></img></div>
-<div>
+<div style="width: 100%;">
 <p id = "info" style = "color: black;"></p>
 
 <p id = "test" style = "font-size: 14px;color: black;" ></p></div>
@@ -229,7 +229,7 @@ img {
 </center>
 
 <div class="footer">
-  <p>Site hosted and Maintained by Techinical team, Bandipur house</p>
+  <p style="font-size: 11px;">Site hosted and Maintained by Techinical team, Bandipur house</p>
 </div>
 
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase.js"></script>
@@ -303,7 +303,7 @@ function onSignIn(googleUser) {
 
       if(snapshot.val() == null || snapshot.val() == "null"){
 
-        window.alert("Sorry, you cannot access this portal, Either because you don't belong to Bandipur House or you have been banned from using the portal... ");
+        window.alert("Sorry, you cannot access this portal, Either you don't belong to Bandipur House or banned from using the portal. Please contact WebAdmin for more information. ");
 
         }
 
@@ -314,7 +314,7 @@ function onSignIn(googleUser) {
           
           flag = "t";
       
-          document.getElementById('info1').innerHTML = "You Belong to group : <b>" + snapshot.val() + "</b>";
+          document.getElementById('info1').innerHTML = "Group : <b>" + snapshot.val() + "</b>";
 
           document.getElementById('g').innerHTML = "In case you haven't connected with the Group Leader of " + snapshot.val() + " please contact the WebAdmin at " ;
 
