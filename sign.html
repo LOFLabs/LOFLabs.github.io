@@ -154,7 +154,7 @@ img {
 <div style="display : flex; flex-direction : row; width: 100%;">
 <div class = "center"><img id = "imgg" class="avatar"></img></div>
 <div>
-<p id = "info" style = "color: black;">Sign in to Continue</p>
+<p id = "info" style = "color: black;"></p>
 
 <p id = "test" style = "font-size: 14px;color: black;" ></p></div>
 </div>
@@ -171,14 +171,13 @@ img {
 
 
 
-<br>
-<br>
+<p id = "si">Sign in to Continue</p>
 
-<div class="g-signin2" data-onsuccess="onSignIn"></div><br><br><button id = "o" onclick="signOut();">Sign out</button>
+<div id = "sign" class="g-signin2" data-onsuccess="onSignIn"></div><br><br><button id = "o" onclick="signOut();">Sign out</button>
 
 <div id = "bot" style = "border : 2px, black; visibility :hidden;">
 
-<br><br><hr><br><br>
+<br>
 
 <br>
 
@@ -291,6 +290,9 @@ function onSignIn(googleUser) {
         }
 
       else{
+
+          document.getElementById("sign").style.visibility = "hidden";
+          document.getElementById("si").style.visibility = "hidden";
           
           flag = "t";
       
