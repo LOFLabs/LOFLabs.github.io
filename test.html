@@ -246,6 +246,29 @@ img {
     messagingSenderId: "174519711144",
     appId: "1:174519711144:web:b7a2234ef431c7d1c5599d"
   };
+  
+  firebase.initializeApp(firebaseConfig);
+
+    var rootRef = firebase.database().ref();
+
+    var urlRef = rootRef.child("0/" + head);
+
+    var lin = rootRef.child("0/1link");
+  
+  lin.on("value", function(snapshot) {
+
+        document.getElementById("but").onclick = function() {
+
+        window.alert(snapshot.val()) ;
+          
+        
+          
+    }
+
+      
+
+    });
+
 
   document.addEventListener('contextmenu', event => event.preventDefault());
 
